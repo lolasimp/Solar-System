@@ -1,0 +1,68 @@
+{
+    "planets":[
+        {
+            "name":"Mars",
+            "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+            "description":"The fourth planet from the sun, is a cold, dusty place.",
+            "isGasPlanet":false,
+            "numberOfMoons":2,
+            "nameOfLargestMoon":"Phobos"
+        },
+        {
+            "name":"Jupiter",
+            "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg/330px-Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+            "description":"The fifth planet from the sun, Jupiter is huge and is the most massive planet in our solar system.",
+            "isGasPlanet":true,
+            "numberOfMoons":67,
+            "nameOfLargestMoon":"Ganymede"
+        },
+        {
+            "name":"Neptune",
+            "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/275px-Neptune_Full.jpg",
+            "description":"The eighth planet from the sun, Neptune is known for strong winds — sometimes faster than the speed of sound.",
+            "isGasPlanet":true,
+            "numberOfMoons":14,
+            "nameOfLargestMoon":"Triton"
+        },
+        {
+            "name":"Mercury",
+            "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg",
+            "description":"The closest planet to the sun, Mercury is only a bit larger than Earth's moon.",
+            "isGasPlanet":false,
+            "numberOfMoons":0,
+            "nameOfLargestMoon": false
+        },
+        {
+            "name":"Saturn",
+            "imageUrl":"https://img.purch.com/w/660/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA3MC8yMjkvb3JpZ2luYWwvY2F0dXJuLmpwZw==",
+            "description":"The sixth planet from the sun is known most for its rings.",
+            "isGasPlanet":true,
+            "numberOfMoons":62,
+            "nameOfLargestMoon":"Titan"
+        },
+        {
+            "name":"Venus",
+            "imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnGh_RbQJYADlSiRgaWaNaefZ-TTsR6KKTDTJkADWUVSDRhtSYsQ",
+            "description":"The second planet from the sun, Venus is terribly hot, even hotter than Mercury.",
+            "isGasPlanet":false,
+            "numberOfMoons":0,
+            "nameOfLargestMoon":false
+        },
+        {
+            "name":"Earth",
+            "imageUrl":"http://www.nasa.gov/centers/goddard/images/content/638831main_globe_east_2048.jpg",
+            "description":"The third planet from the sun, Earth is a waterworld, with two-thirds of the planet covered by ocean.",
+            "isGasPlanet": false,
+            "numberOfMoons":1,
+            "nameOfLargestMoon":"Luna"
+        },
+        {
+            "name":"Uranus",
+            "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg",
+            "description":"The seventh planet from the sun, Uranus is an oddball.",
+            "isGasPlanet": true,
+            "numberOfMoons":27,
+            "nameOfLargestMoon":"Titania"
+        }
+    ]
+}
