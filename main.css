@@ -1,0 +1,77 @@
+body {
+    background-image:url(https://www.jpl.nasa.gov/assets/images/content/tmp/home/missions_bg_image.jpg);
+    text-align: center;
+}
+
+h1 {
+    color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.milky-way {
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+}
+
+
+.cards{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 2%;
+    width: 350px;
+    height: 300px;
+    border-radius: 100%;
+    color: white;
+}
+
+.hidden {
+    border-radius: 100%;
+    margin: 2%;
+    width: 350px;
+    height: 300px;
+    display: none;
+}
+
+img{
+    border-radius: 100%;
+    margin: 2%;
+    width: 350px;
+    height: 300px;
+}
+
+/* .show {
+    width: 350px;
+    height: 300px;
+    border-radius: 100%;
+} */
+
+
+/* Search Button */
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 68%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: rgb(233, 238, 241);
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

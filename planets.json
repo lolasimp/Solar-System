@@ -30,7 +30,7 @@
             "description":"The closest planet to the sun, Mercury is only a bit larger than Earth's moon.",
             "isGasPlanet":false,
             "numberOfMoons":0,
-            "nameOfLargestMoon": false
+            "nameOfLargestMoon": "Nope"
         },
         {
             "name":"Saturn",
@@ -46,7 +46,7 @@
             "description":"The second planet from the sun, Venus is terribly hot, even hotter than Mercury.",
             "isGasPlanet":false,
             "numberOfMoons":0,
-            "nameOfLargestMoon":false
+            "nameOfLargestMoon":"Naaada"
         },
         {
             "name":"Earth",
