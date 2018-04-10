@@ -8,7 +8,7 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.milky-way {
+#milky-way {
     flex-wrap: wrap;
     align-content: center;
     display: flex;
@@ -26,10 +26,14 @@ h1 {
 }
 
 .hidden {
-    border-radius: 100%;
+    /* font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
     margin: 2%;
     width: 350px;
     height: 300px;
+    border-radius: 100%;
+    color: white;
+    border: solid 2px white; */
     display: none;
 }
 
@@ -49,7 +53,7 @@ img{
 
 /* Search Button */
 
-form.example input[type=text] {
+/* form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -74,4 +78,4 @@ form.example::after {
     content: "";
     clear: both;
     display: table;
-  }
+  } */
