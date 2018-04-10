@@ -58,7 +58,7 @@ const clickPlanets = () => {
     for (let i = 0; i < card.length; i++) {
         card[i].addEventListener('click', ((e) => {
             console.log('click event', e);
-            startApplication2();
+            getBigCard();
         }))
     }
 }
@@ -97,15 +97,25 @@ const clickPlanets = () => {
     };
     
 
-    function onLoad() {
-        const data = JSON.parse(this.responseText);
-        console.log('This is data', data);
-        bigPlanets(data.planets); 
+    
+
+    const getBigCard = () => {
+        let newRequest = new XMLHttpRequest();
+        newRequest.addEventListener('load', onLoad);
+        newRequest.addEventListener('error', executeFileError);
+        newRequest.open("GET", "planets.json");
+        newRequest.send();
+
+        function onLoad() {
+            const data = JSON.parse(this.responseText);
+            console.log('This is data', data);
+            bigPlanets(data.planets); 
+        }
     }
 
-const startApplication2 =() => {
+const startApplication2 =(successFunction) => {
     let secRequest = new XMLHttpRequest();
-    secRequest.addEventListener("load", onLoad);
+    secRequest.addEventListener("load", successFunction);
     secRequest.addEventListener("error", executeFileError);
     secRequest.open("GET", "planets.json");
     secRequest.send();
@@ -126,11 +136,12 @@ function executeFileError() {
 
 
 const startApplication =() => {
-    let myRequest = new XMLHttpRequest();
-    myRequest.addEventListener("load", executeFileOnLoad);
-    myRequest.addEventListener("error", executeFileError);
-    myRequest.open("GET", "planets.json");
-    myRequest.send();
+    startApplication2(executeFileOnLoad)
+    // let myRequest = new XMLHttpRequest();
+    // myRequest.addEventListener("load", executeFileOnLoad);
+    // myRequest.addEventListener("error", executeFileError);
+    // myRequest.open("GET", "planets.json");
+    // myRequest.send();
 }
 
 startApplication ();
