@@ -1,119 +1,124 @@
 const printToDom = (domString, divId) => {
-    document.getElementById(divId).innerHTML += domString;
+    document.getElementById(divId).innerHTML = domString;
 }
 
-const domString = (theArray) => {
-    theArray.forEach((planets) => {
-        let domString = '';
-        domString += `<h1> ${planets.name} </h1>`
-        printToDom(domString, "milky-way")
-    })
+
+const smallPlanets = (planets, index) => {
+    let domString="";
+        domString += `<div class="cards" id=${index}>`;
+        domString += `<h2 class="planetNames"> ${planets.name} </h2>`; 
+        domString += `<img class="hidden" src="${planets.imageUrl}">`;
+        domString += `</div>`;
+    return domString;
 };
 
 const buildSolarSystem = (planetsArray) => {
     let domString= '';
     planetsArray.forEach((planets) => {
-        domString += `<div class="cards">`
-        domString += `<h2 class="planetNames"> ${planets.name} </h2>`; 
-        domString += `<img class="hidden" src="${planets.imageUrl}">`;
-        domString += `</div>`;
+    domString += smallPlanets(planets);
     
     })
-    printToDom(domString, 'milky-container');
-}
+    printToDom(domString, 'milky-way');
+};
+
 
 //    find image and h2
 //    add remove
 
-// const hoverPlanetsArray = (hoverPlanets);
-// hoverPlanetsArray.forEach(e => {
-//     e.addEventListener('mouseenter', imageAppears);
-//     e.addEventListener('mouseleave', hideImage);
-// })
+const imageAppears = (e) => {
+    let div = e.target;
+    while(div.className !== 'cards'){
+        div = div.parentNode;
+    }
+    div.children[0].className = 'hidden';
+    div.children[1].className ='';
+};
 
-// const hoverPlanets = (event) => {
-//     const addHover = document.getElementsByClassName('cards');
+const hideImage = (e) => {
+    let div = e.target;
+    while(div.className !== 'cards'){
+        div = div.parentNode;
+    }
+    div.children[0].className = '';
+    div.children[1].className ='hidden';
+};
+
+const hoverPlanets = () => {
+    const addHover = document.getElementsByClassName('cards');
   
-//     for (let i=0; i < addHover.length; i++) {
-//         // console.log(addHover[i]);
-//         addHover[i].addEventListener("mouseenter", imageAppears);
-//         addHover[i].addEventListener("mouseleave", hideImage);
-//     }
-// };
+    for (let i=0; i < addHover.length; i++) {
+        addHover[i].addEventListener("mouseover", imageAppears);
+        addHover[i].addEventListener("mouseleave", hideImage);
+    }
+};
 
-const hoverEventListener = () => {
-    const planetName = document.getElementsByClassName('cards');
-    for (let i=0; i<planetName.length; i++) {
-        planetName[i].addEventListener('mouseenter', imageAppears);
+
+const clickPlanets = () => {
+    const card = document.getElementsByClassName('cards');
+    for (let i = 0; i < card.length; i++) {
+        card[i].addEventListener('click', ((e) => {
+            console.log('click event', e);
+            startApplication2();
+        }))
     }
 }
 
-const hideEventListener = () => {
-    const planetName = document.getElementsByClassName('cards');
-    for (let q=0; q<planetName.length; q++) {
-        planetName[q].addEventListener('mouseleave', hideImage);
-    }
-}
-// const showEventListeners = () => {
-//     const planetPic = document.getElementsByClassName('cards');
-//     for (let m=0; m<planetPic.length; m++) {
-//         planetPic[m].addEventListener('mouseout', (e) => {
-//             if(e.tareget.className === 'planetPic'){
-//                 imageAppears(e);
-//             }
+// const clickPlanets = () => {
+//     console.log('Look at this',);
+//     const card = document.getElementsByClassName('cards');
+//     const allArray = Array.from(card);
+//     console.log('Try Again', card);
+//     allArray.forEach(cards => {
+//         cards.addEventListener("click", (e) => {
+//             console.log('click event', e);
+//             let position = e.target;
+//             while(position.className != 'cards'){
+//              }
+//             console.log(planetsArray);
+//             startApplication2(planetsArray);
 //         });
-//     };
+//     });
 // };
 
-imageAppears = (e) => {
-    e.target.parentNode.children[0].classList.add('hidden');
-    e.target.parentNode.children[1].classList.remove('hidden');
+
+
+    const bigPlanets = (planets) => {
+        let bigString="";
+            bigString += `<div class="bigPlanet">`;
+            bigString += `<button class="x">X</button>`;
+            bigString += `<h2 class="planetNames"> ${planets.name} </h2>`; 
+            bigString += `<img src="${planets.imageUrl}">`;
+            bigString += `<h3>${planets.description} </h3>`;
+            bigString += `<p>${planets.isGasPlanet} <p>`;
+            bigString += `<p>${planets.numberOfMoons}<p>`;
+            bigString += `<p${planets.nameOfLargestMoon}<p>`;
+            bigString += `</div>`;
+            printToDom(bigString, 'milky-way');
+    };
+    
+
+    function onLoad() {
+        const data = JSON.parse(this.responseText);
+        console.log('This is data', data);
+        bigPlanets(data.planets); 
+    }
+
+const startApplication2 =() => {
+    let secRequest = new XMLHttpRequest();
+    secRequest.addEventListener("load", onLoad);
+    secRequest.addEventListener("error", executeFileError);
+    secRequest.open("GET", "planets.json");
+    secRequest.send();
 }
-
-hideImage = (e) => {
-    e.target.parentNode.children[0].classList.remove('hidden');
-    e.target.parentNode.children[1].classList.add('hidden');
-}
-
-
-
-// const clickPlanet = () => {
-// console.log("clickPlanets", e.target);
-// let m = e.target;
-// let child = m.firstElementChild;
-// let childName = child.innerHTML;
-// console.log('Look', childName);
-// }
-
-// const buildPlanet = (planets) => {
-// let domString = '';
-//     domString += `<div class="single-planet">`;
-//     domString += `<h2 class="planetName> ${planets.name} </h2>`; 
-//     domString += `<img src="${planets.imageUrl}">`;
-//     domString += `<p>${planets.descriptions} </p>`;
-//     domString += `<p>${planets.isGasPlanet} <p>`;
-//     domString += `<p>${planets.numberOfMoons}<p>`;
-//     domString += `<p${planets.nameOfLargestMoon}<p>`;
-//     domString += `</div>`;
-//     });
-//     printToDom(domString, 'milky-way');
-// }
-
-// const startApplication2 =() => {
-//     let Request = new XMLHttpRequest();
-//     Request.addEventListener("load", executeFileOnLoad);
-//     Request.addEventListener("error", executeFileError);
-//     Request.open("GET", "planets.json");
-//     Request.send();
-// }
 
 function executeFileOnLoad () {
     const data = JSON.parse(this.responseText);
     buildSolarSystem (data.planets);
-    hoverEventListener();
-    hideEventListener();
+    hoverPlanets();
+    clickPlanets();
+    
+ 
 }
-
 
 function executeFileError() {
     console.log("That planet does NOT exist!!");
