@@ -6,7 +6,7 @@ const printToDom = (domString, divId) => {
 const smallPlanets = (planets, index) => {
     let domString="";
         domString += `<div class="cards" id=${index}>`;
-        domString += `<h2 class="planetNames"> ${planets.name} </h2>`; 
+        domString += `<h2 class="planetNames">${planets.name}</h2>`; 
         domString += `<img class="hidden" src="${planets.imageUrl}">`;
         domString += `</div>`;
     return domString;
@@ -56,29 +56,10 @@ const hoverPlanets = () => {
 const clickPlanets = () => {
     const card = document.getElementsByClassName('cards');
     for (let i = 0; i < card.length; i++) {
-        card[i].addEventListener('click', ((e) => {
-            console.log('click event', e);
-            getBigCard();
-        }))
+        card[i].addEventListener('click', getBigCard);
     }
 }
 
-// const clickPlanets = () => {
-//     console.log('Look at this',);
-//     const card = document.getElementsByClassName('cards');
-//     const allArray = Array.from(card);
-//     console.log('Try Again', card);
-//     allArray.forEach(cards => {
-//         cards.addEventListener("click", (e) => {
-//             console.log('click event', e);
-//             let position = e.target;
-//             while(position.className != 'cards'){
-//              }
-//             console.log(planetsArray);
-//             startApplication2(planetsArray);
-//         });
-//     });
-// };
 
 
 
@@ -86,7 +67,7 @@ const clickPlanets = () => {
         let bigString="";
             bigString += `<div class="bigPlanet">`;
             bigString += `<button class="x">X</button>`;
-            bigString += `<h2 class="planetNames"> ${planets.name} </h2>`; 
+            bigString += `<h2 class="planetNames">${planets.name} </h2>`; 
             bigString += `<img src="${planets.imageUrl}">`;
             bigString += `<h3>${planets.description} </h3>`;
             bigString += `<p>${planets.isGasPlanet} <p>`;
@@ -99,7 +80,7 @@ const clickPlanets = () => {
 
     
 
-    const getBigCard = () => {
+    const getBigCard = (e) => {
         let newRequest = new XMLHttpRequest();
         newRequest.addEventListener('load', onLoad);
         newRequest.addEventListener('error', executeFileError);
@@ -109,9 +90,17 @@ const clickPlanets = () => {
         function onLoad() {
             const data = JSON.parse(this.responseText);
             console.log('This is data', data);
-            bigPlanets(data.planets); 
+            for(let m = 0; m < data.planets.length; m++){
+                if( data.planets[m].name === e.target.previousSibling.innerHTML){
+                    bigPlanets(data.planets[m]);
+                } 
+                // console.log(data.planets[m].name);
+            }
+            // console.log('event', e.target.previousSibling.innerHTML);
+            // bigPlanets(data.planets); 
         }
     }
+    // target particular planet in data to show on page alone
 
 const startApplication2 =(successFunction) => {
     let secRequest = new XMLHttpRequest();
