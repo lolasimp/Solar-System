@@ -26,14 +26,6 @@ h1 {
 }
 
 .hidden {
-    /* font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin: 2%;
-    width: 350px;
-    height: 300px;
-    border-radius: 100%;
-    color: white;
-    border: solid 2px white; */
     display: none;
 }
 
@@ -44,43 +36,14 @@ img{
     height: 300px;
 }
 
-.bigPlanets {
+.bigPlanet {
     align-content: center;
     color: white;
+    padding-top: 75px;
+    padding-left: 290px;
 }
 
 .x {
     color: red;
+    width: 100px;
 }
-
-.h3 {
-    color: white;
-}
-/* Search Button */
-
-/* form.example input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 68%;
-    background: #f1f1f1;
-}
-
-form.example button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: rgb(233, 238, 241);
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-}
-
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-  } */
