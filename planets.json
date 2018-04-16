@@ -12,7 +12,7 @@
             "name":"Jupiter",
             "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg/330px-Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
             "description":"The fifth planet from the sun, Jupiter is huge and is the most massive planet in our solar system.",
-            "isGasPlanet": true,
+            "isGasPlanet":true,
             "numberOfMoons":67,
             "nameOfLargestMoon":"Ganymede"
         },

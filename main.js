@@ -68,6 +68,19 @@ const getX = () => {
     }
 };
 
+const searchPlanets = (planetsArray) => {
+    const wordsEntered = document.getElementById('input-word');
+        wordsEntered.addEventListener('keypress', (e) => {
+            // console.log('this', e);
+        if(e.key === 'Enter'){
+            let text = wordsEntered.value;
+            let results = planetsArray.filter((coolPlanet) => {
+                return coolPlanet.name.indexOf(text) >-1;
+            })
+            return smallPlanets(results);
+        }
+    })
+};
 
  const bigPlanets = (planets) => {
     let bigString="";
@@ -118,6 +131,7 @@ function executeFileOnLoad () {
     buildSolarSystem (data.planets);
     hoverPlanets();
     clickPlanets();
+    searchPlanets(data.planets);
 }
 
 function executeFileError() {
