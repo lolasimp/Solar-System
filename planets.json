@@ -4,7 +4,7 @@
             "name":"Mars",
             "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
             "description":"The fourth planet from the sun, is a cold, dusty place.",
-            "isGasPlanet":false,
+            "isGasPlanet": false,
             "numberOfMoons":2,
             "nameOfLargestMoon":"Phobos"
         },
@@ -12,7 +12,7 @@
             "name":"Jupiter",
             "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg/330px-Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
             "description":"The fifth planet from the sun, Jupiter is huge and is the most massive planet in our solar system.",
-            "isGasPlanet":true,
+            "isGasPlanet": true,
             "numberOfMoons":67,
             "nameOfLargestMoon":"Ganymede"
         },
@@ -20,7 +20,7 @@
             "name":"Neptune",
             "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/275px-Neptune_Full.jpg",
             "description":"The eighth planet from the sun, Neptune is known for strong winds — sometimes faster than the speed of sound.",
-            "isGasPlanet":true,
+            "isGasPlanet": true,
             "numberOfMoons":14,
             "nameOfLargestMoon":"Triton"
         },

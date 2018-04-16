@@ -44,13 +44,18 @@ img{
     height: 300px;
 }
 
-/* .show {
-    width: 350px;
-    height: 300px;
-    border-radius: 100%;
-} */
+.bigPlanets {
+    align-content: center;
+    color: white;
+}
 
+.x {
+    color: red;
+}
 
+.h3 {
+    color: white;
+}
 /* Search Button */
 
 /* form.example input[type=text] {

@@ -19,6 +19,7 @@ const buildSolarSystem = (planetsArray) => {
     
     })
     printToDom(domString, 'milky-way');
+    getX();
 };
 
 
@@ -58,49 +59,51 @@ const clickPlanets = () => {
     for (let i = 0; i < card.length; i++) {
         card[i].addEventListener('click', getBigCard);
     }
-}
+};
+
+const getX = () => {
+    const reset = document.getElementsByClassName('x');
+    for (let q = 0; q < reset.length; q++) {
+        reset[q].addEventListener('click', reload);
+    }
+};
 
 
-
-
-    const bigPlanets = (planets) => {
-        let bigString="";
+ const bigPlanets = (planets) => {
+    let bigString="";
             bigString += `<div class="bigPlanet">`;
-            bigString += `<button class="x">X</button>`;
+            bigString += `<button btn-lg class="x">X</button>`;
             bigString += `<h2 class="planetNames">${planets.name} </h2>`; 
             bigString += `<img src="${planets.imageUrl}">`;
             bigString += `<h3>${planets.description} </h3>`;
             bigString += `<p>${planets.isGasPlanet} <p>`;
-            bigString += `<p>${planets.numberOfMoons}<p>`;
-            bigString += `<p${planets.nameOfLargestMoon}<p>`;
+            bigString += `<p>${planets.numberOfMoons} Moons<p>`;
+            bigString += `<p>Largest Moon: ${planets.nameOfLargestMoon}<p>`;
             bigString += `</div>`;
             printToDom(bigString, 'milky-way');
-    };
+            getX();
+};
     
-
-    
-
-    const getBigCard = (e) => {
-        let newRequest = new XMLHttpRequest();
+const getBigCard = (e) => {
+    let newRequest = new XMLHttpRequest();
         newRequest.addEventListener('load', onLoad);
         newRequest.addEventListener('error', executeFileError);
         newRequest.open("GET", "planets.json");
         newRequest.send();
 
-        function onLoad() {
-            const data = JSON.parse(this.responseText);
-            console.log('This is data', data);
+    function onLoad() {
+        const data = JSON.parse(this.responseText);
+        // console.log('This is data', data);
             for(let m = 0; m < data.planets.length; m++){
                 if( data.planets[m].name === e.target.previousSibling.innerHTML){
                     bigPlanets(data.planets[m]);
                 } 
                 // console.log(data.planets[m].name);
-            }
-            // console.log('event', e.target.previousSibling.innerHTML);
-            // bigPlanets(data.planets); 
-        }
+            } 
     }
+}
     // target particular planet in data to show on page alone
+        
 
 const startApplication2 =(successFunction) => {
     let secRequest = new XMLHttpRequest();
@@ -115,22 +118,18 @@ function executeFileOnLoad () {
     buildSolarSystem (data.planets);
     hoverPlanets();
     clickPlanets();
-    
- 
 }
 
 function executeFileError() {
     console.log("That planet does NOT exist!!");
 }
 
+const reload = () => {
+    startApplication();
+}
 
 const startApplication =() => {
     startApplication2(executeFileOnLoad)
-    // let myRequest = new XMLHttpRequest();
-    // myRequest.addEventListener("load", executeFileOnLoad);
-    // myRequest.addEventListener("error", executeFileError);
-    // myRequest.open("GET", "planets.json");
-    // myRequest.send();
 }
 
 startApplication ();
